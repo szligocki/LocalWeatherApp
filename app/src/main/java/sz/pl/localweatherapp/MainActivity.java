@@ -2,6 +2,7 @@ package sz.pl.localweatherapp;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +19,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 import sz.pl.localweatherapp.adapter.CityAdapter;
+import sz.pl.localweatherapp.db.City;
 import sz.pl.localweatherapp.db.CityRepo;
 import sz.pl.localweatherapp.db.DBHelper;
 
@@ -123,5 +125,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
+        Intent intent = new Intent(this, DetailActivity.class);
+        intent.putExtra(City.KEY_CITY_ID, Long.parseLong(cityAdapter.getCursor().getString(cursor.getColumnIndex(City.KEY_CITY_ID))));
+        startActivity(intent);
     }
 }
