@@ -15,7 +15,7 @@
 <br />
 <br />
 Add lombok support to Android Studio:<br />
-
+<br />
 Go to File > Settings > Plugins<br />
 Click on Browse repositories...<br />
 Search for Lombok Plugin<br />
