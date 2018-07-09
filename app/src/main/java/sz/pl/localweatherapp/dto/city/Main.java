@@ -3,20 +3,17 @@ package sz.pl.localweatherapp.dto.city;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+@Data
 public class Main implements Parcelable{
 
-    @Getter @Setter
     private double temp;
-    @Getter @Setter
     private double pressure;
-    @Getter @Setter
     private long humidity;
-    @Getter @Setter
     private double temp_min;
-    @Getter @Setter
     private double temp_max;
 
     protected Main(Parcel in) {

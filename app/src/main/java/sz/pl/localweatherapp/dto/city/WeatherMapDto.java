@@ -3,39 +3,28 @@ package sz.pl.localweatherapp.dto.city;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.List;
+import java.util.ArrayList;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import sz.pl.localweatherapp.R;
 
-public class WeatherMapDto implements Parcelable{
+@Data
+public class WeatherMapDto implements Parcelable {
 
-    @Getter @Setter
     private Coord coord;
-    @Getter @Setter
-    private List<Weather> weather;
-    @Getter @Setter
+    private ArrayList<Weather> weather;
     private String base;
-    @Getter @Setter
     private Main main;
-    @Getter @Setter
     private Long visibility;
-    @Getter @Setter
     private Wind wind;
-    @Getter @Setter
     private Clouds clouds;
-    @Getter @Setter
     private float dt;
-    @Getter @Setter
     private Sys sys;
-    @Getter @Setter
     private float id;
-    @Getter @Setter
     private String name;
-    @Getter @Setter
     private Long cod;
 
-    protected WeatherMapDto(Parcel in) {
+    private WeatherMapDto(Parcel in) {
         coord = in.readParcelable(Coord.class.getClassLoader());
         weather = in.createTypedArrayList(Weather.CREATOR);
         base = in.readString();
@@ -100,4 +89,53 @@ public class WeatherMapDto implements Parcelable{
             return new WeatherMapDto[size];
         }
     };
+
+    public Weather getWeather() {
+        if (weather != null && !weather.isEmpty())
+            return weather.get(0);
+        return null;
+    }
+
+    public int getIcon() {
+        switch (getWeather().getIcon()) {
+            case "01d":
+                return R.drawable.ic_01d;
+            case "01n":
+                return R.drawable.ic_01n;
+            case "02d":
+                return R.drawable.ic_02d;
+            case "02n":
+                return R.drawable.ic_02n;
+            case "03d":
+                return R.drawable.ic_03d;
+            case "03n":
+                return R.drawable.ic_03n;
+            case "04d":
+                return R.drawable.ic_4d;
+            case "04n":
+                return R.drawable.ic_4n;
+            case "09d":
+                return R.drawable.ic_9d;
+            case "09n":
+                return R.drawable.ic_9n;
+            case "10d":
+                return R.drawable.ic_10d;
+            case "10n":
+                return R.drawable.ic_10n;
+            case "11d":
+                return R.drawable.ic_11d;
+            case "11n":
+                return R.drawable.ic_11n;
+            case "13d":
+                return R.drawable.ic_13d;
+            case "13n":
+                return R.drawable.ic_13n;
+            case "50d":
+                return R.drawable.ic_50d;
+            case "50n":
+                return R.drawable.ic_50n;
+            default:
+                return R.drawable.ic_01d;
+        }
+    }
 }

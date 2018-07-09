@@ -3,14 +3,14 @@ package sz.pl.localweatherapp.dto.city;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+@Data
 public class Wind implements Parcelable{
 
-    @Getter @Setter
     private double speed;
-    @Getter @Setter
     private double deg;
 
     protected Wind(Parcel in) {

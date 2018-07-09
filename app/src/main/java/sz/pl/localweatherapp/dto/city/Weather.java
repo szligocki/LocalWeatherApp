@@ -3,18 +3,16 @@ package sz.pl.localweatherapp.dto.city;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+@Data
 public class Weather implements Parcelable {
 
-    @Getter @Setter
     private Long id;
-    @Getter @Setter
     private String main;
-    @Getter @Setter
     private String description;
-    @Getter @Setter
     private String icon;
 
     protected Weather(Parcel in) {

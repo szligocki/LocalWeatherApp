@@ -3,14 +3,14 @@ package sz.pl.localweatherapp.dto.city;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+@Data
 public class Coord implements Parcelable {
 
-    @Getter @Setter
     private float lon;
-    @Getter @Setter
     private float lat;
 
     protected Coord(Parcel in) {
