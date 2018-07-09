@@ -11,7 +11,9 @@
  [Download APK](https://ufile.io/zgmk0)
  
  
- 
+<br />
+<br />
+<br />
 Add lombok support to Android Studio:<br />
 
 Go to File > Settings > Plugins<br />
