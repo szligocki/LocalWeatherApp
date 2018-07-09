@@ -9,3 +9,13 @@
  
 
  [Download APK](https://ufile.io/zgmk0)
+ 
+ 
+ 
+Add lombok support to Android Studio:
+
+Go to File > Settings > Plugins
+Click on Browse repositories...
+Search for Lombok Plugin
+Click on Install plugin
+Restart Android Studio
