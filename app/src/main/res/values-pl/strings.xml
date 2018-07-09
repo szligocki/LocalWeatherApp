@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LocalWeatherApp</string>
+    <string name="search_hint">Wyszukaj miasto</string>
+    <string name="humidity">Wilgotność: </string>
+    <string name="pressure">Ciśnienie: </string>
+    <string name="celsius">℃</string>
+    <string name="get_weather_information_error">Nie byliśmy w stanie pobrać informacji o pogodzie dla danej lokalizacji.</string>
+</resources>
