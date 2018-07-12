@@ -11,10 +11,15 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import sz.pl.localweatherapp.db.City;
 import sz.pl.localweatherapp.service.impl.DatabaseServiceImpl;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+
+    @BindView(R.id.cityList)
+    ListView listView;
 
     /**
      * Instance of the database management service
@@ -30,8 +35,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
-        ListView listView = findViewById(R.id.cityList);
         listView.setAdapter(databaseService.generateList(this));
         listView.setOnItemClickListener(this);
     }
@@ -75,13 +80,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
      */
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        startActivity(
-                new Intent(this, DetailActivity.class).putExtra(
-                        City.KEY_CITY_ID,
-                        Long.parseLong(databaseService.getListCursor().getString(
-                                databaseService.getListCursor().getColumnIndex(City.KEY_CITY_ID)
-                        ))
-                )
-        );
+
+        Intent intent = new Intent(this, DetailActivity.class);
+        intent.putExtra(City.KEY_CITY_ID, Long.parseLong(databaseService.getListCursor().getString(databaseService.getListCursor().getColumnIndex(City.KEY_CITY_ID))));
+        startActivity(intent);
     }
 }
